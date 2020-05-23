@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
         rust: [stable]
     steps:
     - uses: hecrj/setup-rust-action@v1
@@ -27,7 +27,7 @@ jobs:
         mkdir -p target/release/
         touch target/release/gitlabctl
     - name: Archive Release
-      run: zip --junk-paths gitlabctl_${{ runner.os }}_${{ github.ref }} target/release/gitlabctl
+      run: zip --junk-paths gitlabctl_${{ runner.os }} target/release/gitlabctl
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -45,8 +45,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-        asset_path: './gitlabctl_${{ runner.os }}_${{ github.ref }}.zip'
-        asset_name: 'gitlabctl_${{ runner.os }}_${{ github.ref }}.zip'
+        asset_path: './gitlabctl_${{ runner.os }}.zip'
+        asset_name: 'gitlabctl_${{ runner.os }}.zip'
         asset_content_type: application/zip
   release_windows:
     runs-on: windows-latest
@@ -64,7 +64,7 @@ jobs:
         mkdir -p target/release/
         touch target/release/gitlabctl.exe
     - name: Archive Release
-      run: powershell Compress-Archive target/release/gitlabctl.exe gitlabctl_${{ runner.os }}_${{ github.ref }}.zip
+      run: powershell Compress-Archive target/release/gitlabctl.exe gitlabctl_${{ runner.os }}.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -82,6 +82,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-        asset_path: './gitlabctl_${{ runner.os }}_${{ github.ref }}.zip'
-        asset_name: 'gitlabctl_${{ runner.os }}_${{ github.ref }}.zip'
+        asset_path: './gitlabctl_${{ runner.os }}.zip'
+        asset_name: 'gitlabctl_${{ runner.os }}.zip'
         asset_content_type: application/zip
