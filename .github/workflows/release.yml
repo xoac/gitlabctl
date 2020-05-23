@@ -34,9 +34,9 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
     - uses: actions/checkout@master
-     - name: Run tests
-     run: cargo test --verbose
-     - name: Build release
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Build release
       run: cargo build --release
     - name: Archive Release
       run: zip --junk-paths gitlabctl_${{ runner.os }} target/release/gitlabctl

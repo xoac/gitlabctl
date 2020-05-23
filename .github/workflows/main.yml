@@ -1,8 +1,8 @@
 on:
-  - push
-  - pull_request
-  - tags-ignore:
-    - 'v*'
+  push:
+    tags-ignore:
+      - 'v*'
+  pull_request:
 
 name: Continuous integration
 
