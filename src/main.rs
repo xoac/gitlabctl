@@ -134,7 +134,7 @@ fn main() -> Result<(), Error> {
             {
                 println!("{} ({})", issue.title.bold(), issue.web_url.italic());
             }
-            return Ok(());
+            Ok(())
         }
     }
 }
