@@ -22,8 +22,9 @@ jobs:
       run: cargo test --verbose
     - name: Build release
       run: cargo build --release
-    - name Zip released binary
-      run: zip --junk-paths gitlabctl_${{ runner.os }}_${{ github.ref }} target/release/gitlabctl
+    - name: Zip released binary
+      run: |
+        zip --junk-paths gitlabctl_${{ runner.os }}_${{ github.ref }} target/release/gitlabctl
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
