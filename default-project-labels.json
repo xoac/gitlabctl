@@ -1,0 +1,83 @@
+[
+  {
+    "name": "priority::high",
+    "color": "#d93f0b",
+    "description": "Highest priority. Should be handled as quick as posibble"
+  },
+  {
+    "name": "priority::medium",
+    "color": "#fbca04",
+    "description": "Medium priority. Normal workflow but should be handled before issues without priority label"
+  },
+  {
+    "name": "priority::low",
+    "color": "#0e8a16",
+    "description": "Lowest priority. Can wait, you should consider looking for unlabeled issues before handle this"
+  },
+
+  {
+    "name": "status::abandoned",
+    "color": "#000000",
+    "description": "Discontinue any further interest in this subject"
+  },
+  {
+    "name": "status::available",
+    "color": "#c2e0c6",
+    "description": "??"
+  },
+  {
+    "name": "status::blocked",
+    "color": "#ee0701",
+    "description": "This subject is blocked by other(s) that need to be resolved before continue"
+  },
+  {
+    "name": "status::in-progress",
+    "color": "#cccccc",
+    "description": "Working in progress"
+  },
+  {
+    "name": "status::on-hold",
+    "color": "#e99695",
+    "description": "There is a delay in completing the issue"
+  },
+  {
+    "name": "status::proposal",
+    "color": "#d4c5f9",
+    "description": "This is more discussion about concept"
+  },
+  {
+    "name": "status::review-needed",
+    "color": "#fbca04",
+    "description": "Should be reviewed by core team member"
+  },
+  {
+    "name": "status::need-more-info",
+    "color": "#cc317c",
+    "description": "More information is required (in most cases from author)"
+  },
+  {
+    "name": "type::bug",
+    "color": "#ee0701",
+    "description": "Confirmed undesirable or incorrect behavior"
+  },
+  {
+    "name": "type::documentation",
+    "color": "#5319e7",
+    "description": "Creating or updating documentation"
+  },
+  {
+    "name": "type::enhancement",
+    "color": "#1d76db",
+    "description": "Propose improvements to existing features or creating new one that is wanted by team"
+  },
+  {
+    "name": "type::question",
+    "color": "#cc317c",
+    "description": ""
+  },
+  {
+    "name": "type::duplicated",
+    "color": "#cccccc",
+    "description": "Identical subject was already created. This one is duplicated"
+  }
+]
