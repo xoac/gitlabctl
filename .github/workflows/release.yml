@@ -18,13 +18,17 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
     - uses: actions/checkout@master
-    - name: Run tests
-      run: cargo test --verbose
-    - name: Build release
-      run: cargo build --release
+    # - name: Run tests
+    # run: cargo test --verbose
+    # - name: Build release
+    #  run: cargo build --release
+    - name: Create file
+      run: |
+        mkdir -p target/release/
+        touch target/release/gitlabctl
     - name: Zip released binary
       run: |
-        zip --junk-paths gitlabctl_${{ runner.os }}_${{ github.ref }} target/release/gitlabctl
+        zip --junk-paths gitlabctl_${{ runner.os }} target/release/gitlabctl
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -42,6 +46,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-        asset_path: ./gitlabctl_${{ runner.os }}_${{ github.ref }}.zip
-        asset_name: gitlabctl_${{ runner.os }}_${{ github.ref }}.zip
+        asset_path: ./gitlabctl_${{ runner.os }}.zip
+        asset_name: gitlabctl_${{ runner.os }}.zip
         asset_content_type: application/zip
