@@ -1,4 +1,4 @@
-name: Multi os release
+name: Multi OS release
 
 on:
   push:
@@ -34,14 +34,10 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
     - uses: actions/checkout@master
-    # - name: Run tests
-    # run: cargo test --verbose
-    # - name: Build release
-    #  run: cargo build --release
-    - name: Create file
-      run: |
-        mkdir -p target/release/
-        touch target/release/gitlabctl
+     - name: Run tests
+     run: cargo test --verbose
+     - name: Build release
+      run: cargo build --release
     - name: Archive Release
       run: zip --junk-paths gitlabctl_${{ runner.os }} target/release/gitlabctl
     - name: Upload Release Asset
@@ -62,14 +58,10 @@ jobs:
       with:
         rust-version: ${{ matrix.rust }}
     - uses: actions/checkout@master
-    # - name: Run tests
-    # run: cargo test --verbose
-    # - name: Build release
-    #  run: cargo build --release
-    - name: Create file
-      run: |
-        mkdir -p target/release/
-        touch target/release/gitlabctl.exe
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Build release
+      run: cargo build --release
     - name: Archive Release
       run: powershell Compress-Archive target/release/gitlabctl.exe gitlabctl_${{ runner.os }}.zip
     - name: Upload Release Asset
