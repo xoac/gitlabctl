@@ -22,7 +22,10 @@ pub struct Label {
 }
 
 impl Label {
-    pub fn to_create_label<'a, VALUE: Into<NameOrId<'a>>>(self, project: VALUE) -> CreateLabel<'a> {
+    pub fn into_create_label<'a, VALUE: Into<NameOrId<'a>>>(
+        self,
+        project: VALUE,
+    ) -> CreateLabel<'a> {
         CreateLabel::builder()
             .project(project)
             .name(self.name)

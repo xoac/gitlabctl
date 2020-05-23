@@ -92,7 +92,7 @@ impl GitlabCtl {
             .map(|label| {
                 label
                     .clone()
-                    .to_create_label(project_id.value())
+                    .into_create_label(project_id.value())
                     .query(&self.gitlab)
                     .map_err(|e| (label, e))
             })
