@@ -7,7 +7,7 @@
 //! page](https://github.com/xoac/gitlabctl/releases)
 //!
 //! ### From source
-//! ```
+//! ```text
 //! cargo install --git https://github.com/xoac/gitlabctl
 //! ```
 //!

@@ -14,7 +14,7 @@ any published version for Windows Linux and Mac can be downloaded from [release 
 page](https://github.com/xoac/gitlabctl/releases)
 
 #### From source
-```rust
+```
 cargo install --git https://github.com/xoac/gitlabctl
 ```
 
